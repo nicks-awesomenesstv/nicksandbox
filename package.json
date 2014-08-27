@@ -1,0 +1,29 @@
+{
+  "name": "nicksandbox",
+  "version": "0.1.0",
+  "description": "Channel review Node.js app using Express 4",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "~3.4.x"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicks-awesomenesstv/nicksandbox.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "NickS.",
+  "contributors": [
+    ""
+  ],
+  "license": ""
+}

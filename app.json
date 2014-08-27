@@ -1,0 +1,7 @@
+{
+  "name": "ATV Channel Review",
+  "description": "Channel Review System",
+  "repository": "https://github.com/nicks-awesomenesstv/nicksandbox.git",
+  "logo": "",
+  "keywords": ["node", "express", "static"]
+}
