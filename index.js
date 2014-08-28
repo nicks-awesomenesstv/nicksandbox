@@ -1,7 +1,12 @@
-app.get('/', function(request, response) {
-  var result = ''
-  var times = process.env.TIMES || 5
-  for (i=0; i < times; i++)
-    result += cool();
-  response.send(result);
-});
+var express = require('express');
+var app = express();
+
+//require('./generateList');
+
+
+//eval(fs.readFileSync('./generateList.js')+'');
+
+app.use(express.static(__dirname + '/public'));
+
+app.listen(process.env.PORT || 'port');
+

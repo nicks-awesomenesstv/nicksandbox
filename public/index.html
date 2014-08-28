@@ -1,0 +1,100 @@
+<!doctype html>
+<html><head>
+<h1>AwesomenessTV Network Rating System</h1>
+<p>Click the button below to load channels.</p>
+
+<meta charset="UTF-8">
+<title>Channel Review</title>
+</head>
+
+<body>
+<script>
+var result ="";
+
+function getNow(){
+
+	var currentDate = new Date()
+	var day = currentDate.getDate()
+	var month = currentDate.getMonth() + 1
+	var year = currentDate.getFullYear()
+	var hours = currentDate.getHours()
+	var minutes = currentDate.getMinutes()
+	if (minutes < 10){
+		minutes = "0" + minutes
+	}
+	return year+'/'+month+'/'+day+" "+hours+":"+minutes 
+
+}
+
+function getChannels(){
+	var channels = prompt("Enter list of channels for Review (comma-separated): ","");
+}
+
+function makelist(){
+
+	var log_file_location = "/Users/nicks/Desktop/";
+	var result ="";
+	var channels = prompt("Enter list of channels for Review (comma-separated): ","");
+
+    // Establish the array which acts as a data source for the list
+    var channelArray = channels.split(",");
+
+    // Make a container element for the list - which is a <div>
+    // You don't actually need this container to make it work
+
+    var listContainer = document.createElement("div");
+
+    // add it to the page
+    document.getElementsByTagName("body")[0].appendChild(listContainer);
+
+    // Make the list itself which is a <ul>
+    var listElement = document.createElement("ul");
+
+    // add it to the page
+    listContainer.appendChild(listElement);
+
+    // Set up a loop that goes through the items in listItems one at a time
+    var numberOfChannels = channelArray.length;
+
+    for( var i =  0 ; i < numberOfChannels ; ++i){
+
+			// create a <li> for each one.
+            var listItem = document.createElement("p");
+
+            // add the item text
+            listItem.innerHTML = '<a href="https://youtube.com/channel/'+ channelArray[i] +'"target="_blank">'+ channelArray[i] +'</a>';
+			listItem.innerHTML +='&nbsp;';
+			listItem.innerHTML +="<form name='ratingForm' action='' method='get'><input type='integer' id='rating' placeholder='rating'/><input type='text' id='comment' placeholder='comment'/><input type='hidden' id='channel' value="+channelArray[i]+"/><input type='button' name='button' value='Submit' onClick='getResults(this.form);disabled=true'></button></form>";
+
+			//console.log(result);			
+            // add listItem to the listElement
+            listElement.appendChild(listItem);
+
+			//var rating = document.getElementById('rating').value;
+			//var comment = document.getElementById('comment').value;
+			//console.log(rating)
+    }
+}	
+</script>	
+	
+<input type="button" value='Rate Channels' onClick='makelist()' >
+<script>
+
+
+function getResults (form) {
+	var channel = form.channel.value;
+    var rating = form.rating.value;
+	var comment = form.comment.value;
+	
+	result = channel+","+rating+","+comment+","+getNow();
+	alert(result);
+}
+</script>
+
+
+
+</body>
+
+<script src="generateList.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</html>
